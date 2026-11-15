@@ -309,6 +309,17 @@ function matchesPattern(startRow, startCol) {
   return true;
 }
 
+
+function updateScore() {
+  document.getElementById("score").textContent = score;
+
+  // Update high score if current score exceeds it
+  if (score > highScore) {
+    highScore = score;
+    document.getElementById("high-score").textContent = highScore;
+    localStorage.setItem("stackOverflownHighScore", highScore);
+  }
+}
 // Clear matched pattern
 function clearPattern(startRow, startCol) {
   // Clear all blocks on the board
